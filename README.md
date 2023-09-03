@@ -1,2 +1,7 @@
-# PLC
-Trabalhos práticos da cadeira de Processamento de Linguagens e Compiladores
+# PLC - TP
+
+## 17/20
+
+#### Colaboradores:
+##### [Gonçalo Silva](https://github.com/Goncalo448)
+##### [Sara Fontes](https://github.com/Sarafont)
