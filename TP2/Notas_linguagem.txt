@@ -1,0 +1,74 @@
+Declaração de variáveis:
+int x;
+int x = v; #v é o valor atribuído a x
+array[size] a;
+array[size] a = [2,3,4];
+matrix[size][size] m;
+
+
+aritmética:
+sum(x, y) # x+y
+subtrac(x, y) # x-y
+mult(x, y) # x*y
+div(x, y) # x / y
+rem(x, y) # resto da div de x por y
+
+relacionais:
+equals(x, y) # x == y
+gt(x,y) # x > y
+gte(x, y) # x >= y
+lt(x, y) # x < y
+lte(x, y) # x <= y
+notequals(x, y) # x != y
+
+lógicas:
+not(x) # negação de x
+and(x, y) # conjunção de x com y
+or(x, y) # disjunção de x com y
+
+STDIN/STDOUT:
+write(x) # escreve x no stdout
+read() # lê algo do stdin
+
+Atribuições:
+x = y;
+
+
+Instruções de seleção / condicionais:
+
+if x then y;
+
+if x then y else z;
+
+
+ciclos:
+
+while x:
+	do y
+end;
+
+
+indexação:
+
+a[i] #obter o elemento do índice "i" do array "a"
+
+m[i][j] #obter o elemento da linha "i" e coluna "j" da matriz "m"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

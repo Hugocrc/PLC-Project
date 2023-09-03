@@ -1,0 +1,96 @@
+simbolos terminais: 'NUM',
+                    'NAME',
+                    'INT',
+                    'ARRAY',
+                    'MATRIX',
+                    'SUM',
+                    'SUBTRAC',
+                    'MULT',
+                    'DIV',
+                    'REM',
+                    'GT',
+                    'LT',
+                    'EQUALS',
+                    'GTE',
+                    'LTE',
+                    'NOTEQUALS',
+                    'NOT',
+                    'AND',
+                    'OR',
+                    'WRITE',
+                    'READ',
+                    'ATRIB',
+                    'LPAREN',
+                    'RPAREN',
+                    'LBRACKET',
+                    'RBRACKET',
+                    'WHILE',
+                    'DO',
+                    'IF',
+                    'THEN',
+                    'ELSE',
+                    'COMMA',
+                    'DOTCOMMA'
+
+
+--------------------------------------------------- Gramática ----------------------------------------------
+
+
+Program : Body
+        | Declarations Body
+
+Declarations : Declaration
+             | Declaration Declarations
+
+Declaration : INT NAME DOTCOMMA
+            | ARRAY LBRACKET NUM RBRACKET NAME DOTCOMMA
+            | MATRIX LBRACKET NUM RBRACKET LBRACKET NUM RBRACKET NAME DOTCOMMA
+
+
+Body : Process
+     | Process Body
+
+Process : Ite
+        | WhileLoop
+        | Write_stdout
+        | Assignment
+
+Ite : IF condition THEN Body DOTCOMMA
+    | IF condition THEN Body ELSE Body DOTCOMMA
+
+WhileLoop : WHILE condition DO Body DOTCOMMA
+
+Write_stdout : WRITE NAME DOTCOMMA
+             | WRITE Expr
+
+Assignment : NAME ATRIB Expr DOTCOMMA
+           | NAME LBRACKET Expr RBRACKET ATRIB Expr
+           | NAME LBRACKET Expr RBRACKET LBRACKET Expr RBRACKET ATRIB Expr
+           | NAME ATRIB READ DOTCOMMA
+           | NAME LBRACKET Expr RBRACKET ATRIB READ DOTCOMMA
+           | NAME LBRACKET Expr RBRACKET LBRACKET Expr RBRACKET ATRIB READ DOTCOMMA
+
+condition : LPAREN condition RPAREN
+          | GT LPAREN Expr COMMA Expr RPAREN
+          | GTE LPAREN Expr COMMA Expr RPAREN
+          | LT LPAREN Expr COMMA Expr RPAREN
+          | LTE LPAREN Expr COMMA Expr RPAREN
+          | EQUALS LPAREN Expr COMMA Expr RPAREN
+          | NOTEQUALS LPAREN Expr COMMA Expr RPAREN
+          | NOT LPAREN Expr RPAREN
+          | AND LPAREN Expr COMMA Expr RPAREN
+          | OR LPAREN Expr COMMA Expr RPAREN
+
+Expr : LPAREN Expr RPAREN
+     | condition
+     | NUM
+     | Var
+     | SUM LPAREN Expr COMMA Expr RPAREN
+     | SUBTRAC LPAREN Expr COMMA Expr RPAREN
+     | MULT LPAREN Expr COMMA Expr RPAREN
+     | DIV LPAREN Expr COMMA Expr RPAREN
+     | REM LPAREN Expr COMMA Expr RPAREN
+
+Var : NAME
+    | NAME LBRACKET Expr RBRACKET
+    | NAME LBRACKET Expr RBRACKET LBRACKET Expr RBRACKET
